@@ -1,6 +1,6 @@
 # NFA in a Single Line of Haskell (aka. The List Monad is Awesome)
 
-[Nondeterministic finite automatons][1] are most often used in the context of regular languages, and while the efficient approach in most practical applications is to translate the NFA to an equivalent [deterministic finite automaton][3], simulating the non-determinism directly makes for an interesting coding problem. In Haskell, it turns out we can leverage the power of the list monad to implement an NFA almost trivially.
+[Nondeterministic finite automata][1] are most often used in the context of regular languages, and while the efficient approach in most practical applications is to translate the NFA to an equivalent [deterministic finite automaton][3], simulating the non-determinism directly makes for an interesting coding problem. In Haskell, it turns out we can leverage the power of the list monad to implement an NFA almost trivially.
 
 A nondeterministic finite automaton is defined in terms of
 
