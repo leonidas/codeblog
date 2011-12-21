@@ -536,6 +536,18 @@ so that you know for certain that you are not mixing up screen coordinates with 
 
 All the code written for this post can be viewed and downloaded [here](https://gist.github.com/1506540).
 
+## Updates
+
+### 2011-12-21 21:13 UTC
+
+The user ryani over at the [reddit thread](http://www.reddit.com/r/haskell/comments/nlctb/statically_typed_vector_algebra_with_type_families/) made a great point about `AddT`. Since the typeclass doesn't contain any methods, it doesn't make much sense to use a typeclass with associated types. You can simply use a top level type family, which also gets rid of the requirement for UndecidableInstances. This is a big deal, as the aforementioned extension has a lot of drawbacks.
+
+```haskell
+type family AddT a b
+type instance AddT D1 b = Succ b
+type instance AddT (Succ a) b = Succ (AddT a b)
+```
+
 --
 Sami Hangaslammi <[sami.hangaslammi@leonidasoy.fi](mailto://sami.hangaslammi@leonidasoy.fi)>
 
