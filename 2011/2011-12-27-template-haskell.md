@@ -126,6 +126,8 @@ There's much more to Template Haskell, but hopefully this will get you started. 
 
 All the code in this entry can be viewed and downloaded [here](https://gist.github.com/1524967).
 
+You can discuss this entry on [Reddit](http://www.reddit.com/r/haskell/comments/nsmq0/basic_tutorial_of_template_haskell/).
+
 --
 Sami Hangaslammi <[sami.hangaslammi@leonidasoy.fi](mailto://sami.hangaslammi@leonidasoy.fi)>
 
