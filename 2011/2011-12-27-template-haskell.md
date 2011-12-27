@@ -2,6 +2,8 @@
 
 I've been trying to learn [Template Haskell](http://www.haskell.org/haskellwiki/Template_Haskell) lately, but finding easy to understand, up-to-date tutorial material seems to be somewhat of a challenge, so I decided to write down my experiences while trying to decipher the basics of Haskell meta-programming.
 
+The code in this post has been tested with GHC 7.0.3 and template-haskell 2.5.0.0.
+
 ## Quotations
 
 The essence of Template Haskell is to write Haskell code that generates new Haskell code. To ensure that the generated code is well structured, we don't generate Haskell source code, but instead generate the [abstract syntax trees](http://en.wikipedia.org/wiki/Abstract_syntax_tree) directly. So, for example, the function call `f x` is described by the syntax tree `AppE (VarE f) (VarE x)`. However, building the syntax trees manually for anything but the simplest expressions is a lot work, so Template Haskell makes the task easier with quotations.
