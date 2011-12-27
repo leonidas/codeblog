@@ -111,7 +111,7 @@ Finally, we declare the `Show` instance itself with a declaration quotation.
         show x = intercalate ", " (map ($ x) $showFields)|]
 ```
 
-As you can see, the Template Haskell language extension makes the `$` operator context sensitive. In order to use it as a function application operator (like in `map ($ x)`, it needs to be surrounded by space, otherwise it is interpreted as a splicing operator by Template Haskell (as in `$showFields`.
+As you can see, the Template Haskell language extension makes the `$` operator context sensitive. In order to use it as a function application operator (like in `map ($ x)`, it needs to be surrounded by space, otherwise it is interpreted as a splicing operator by Template Haskell (as in `$showFields`).
 
 Other than having to prefix the identifier with `$`, you can treat `showFields` just like any other list literal. Here we map over the list, and pass `x` (which is the record object we are trying to show) to each function in the list. This results in a list of strings, which we intercalate with the separator `", "`.
 
