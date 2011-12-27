@@ -93,7 +93,7 @@ Next, we are going to build a quotation for a function that takes a record and s
             s = nameBase name
 ```
 
-We use the expression quotation to generate a lambda function that returns the string "*name* = *value*". The contents of the quotation is just regular Haskell code, except for the splice `$(global name)`, which is used to access the getter function for the specific named field. It is also noteworthy that we are able use the local variable `s` inside the quotation as is. In the generated AST, it will come out as a plain string literal.
+We use the expression quotation to generate a lambda function that returns the string "*name* = *value*". The content of the quotation is just regular Haskell code, except for the splice `$(global name)`, which is used to access the getter function for the specific named field. It is also noteworthy that we are able use the local variable `s` inside the quotation as is. In the generated AST, it will come out as a plain string literal.
 
 Now that we can generate code for showing a single field, we simply need to iterate all the different field names.
 
