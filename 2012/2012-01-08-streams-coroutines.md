@@ -106,12 +106,12 @@ Note that we are specifically declaring `Coroutine i` to be an instance of funct
 
 Using `fmap`, you can apply a function of type `a -> b` to a `Coroutine i a`, but what if you had a function of type `a -> b -> c`? If you use `fmap` like before, you end up with with a result of type `Coroutine i (b -> c)`. In order to feed in the second parameter `b`, we need a more powerful abstraction: applicative functor.
 
-Applicative functors are functors that have two additional properties. So a parametric type `T a` is an applicative functor if:
+Applicative functors are functors that have two additional properties. A parametric type `T a` is an applicative functor if:
 
 * You can put any "pure" value inside T, i.e. you have a function `a -> T a`
 * You can apply a function that is inside T to a value that is inside T, i.e. you have a function `T (a -> b) -> T a -> T b`
 
-In haskell, the above two functions are called `pure` and `<*>`.
+In Haskell, the above two functions are called `pure` and `<*>`.
 
 
 ```haskell
@@ -126,7 +126,7 @@ instance Applicative (Coroutine i) where
 
 For coroutines, the implementation of `pure` turns a constant value into a coroutine that returns that value for every invocation of the coroutine. `<*>` composes two coroutines `cof :: Coroutine i (x -> y)` and `cox :: Coroutine i x` into a new coroutine of type `Coroutine i y`. So the first coroutine produces functions and the second produces values that are applied to the functions.
 
-The two coroutines both get the same input values and advance in lock-step fashion, so if we were to feed in the inputs *i1*, *i2* and *i3*, *cof* and *cox* would produce the functions *f1*, *f2* and *f3* and the values *x1*, *x2* and *x3* respectively. The final outputs of the composed coroutine would be the result values from the function applications *f1(x1)*, *f2(x2)* and *f3(x3)*.
+The two coroutines both get the same input values and advance in lock-step fashion, so if we were to feed in the inputs *i1*, *i2* and *i3*, *cof* and *cox* would produce the functions *f1*, *f2* and *f3* and the values *x1*, *x2* and *x3* respectively. The final outputs of the combined coroutine would be the result values from the function applications *f1(x1)*, *f2(x2)* and *f3(x3)*.
 
 Next we'll define a convenience function that lets us test our coroutines by feeding them a list of input values and returning the outputs.
 
@@ -155,6 +155,8 @@ intsFrom n = Coroutine $ \_ -> (n, intsFrom (n+1))
 *Main> evalList z [(),(),()]
 [(5,10),(6,12),(7,14)]
 ```
+
+(the operator `<$>` is an alias for `fmap`)
 
 
 ## Coroutines as Arrows
