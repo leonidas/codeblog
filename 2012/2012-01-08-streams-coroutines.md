@@ -13,7 +13,7 @@ i.e. a stream of values (of type a) consists of the first value and the rest of 
 We can then define, for example, a stream of increasing integer values starting from some *n*.
 
 ```haskell
-intsFrom :: Stream Integer
+intsFrom :: Integer -> Stream Integer
 intsFrom n = Stream n $ intsFrom $ n + 1
 ```
 
