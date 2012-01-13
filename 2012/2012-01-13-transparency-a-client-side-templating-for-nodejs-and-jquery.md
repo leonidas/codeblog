@@ -27,7 +27,8 @@ $('container').empty().append(html);
 ```
 
 Frustrated with the amount of labor, I decided to roll out my own and focus on simplicity. In this article, 
-I walk through some of the main design decisions and corresponding implementation.
+I walk through some of the main design decisions and corresponding implementation. For the impatient, here's 
+[the demo site][4].
 
 ## No syntax, please!
 
