@@ -165,7 +165,7 @@ the name on the both elements. That sucks, because it means you'd have to manual
 
 To avoid the problem, we need to
 
-1. Cache the original template on the first .render()
+1. Cache the original template on the first `.render()`
 2. Use the cached template on the successive calls
 
 Luckily, thanks to jQuery `data()`, the functionality is trivial to implement.
