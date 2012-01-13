@@ -1,6 +1,7 @@
 # Transparency - Client-side templating for Node.js and jQuery
 
-[Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for numerous reasons (latencies, separation of concerns and ease of testing to name a few).
+[Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for 
+numerous reasons (smaller latency, separation of concerns and ease of testing to name a few).
 
 However, one point I haven't felt too good about is client side rendering. It's just silly how cumbersome it is to 
 compile the template, render the data and finally manipulate the DOM. For example, with popular template engines like 
