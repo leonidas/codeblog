@@ -4,7 +4,7 @@
 
 However, one point I haven't felt too good about is client side rendering. It's just silly how cumbersome it is to compile the template, render the data and finally manipulate the DOM. For example, with popular template engines like [Handlebars][2] or [Mustache][3], you typically need do something like
 
-```html
+```
 <script id="entry-template" type="text/x-handlebars-template">
   <div class="entry">
     <h1>{{title}}</h1>
@@ -23,9 +23,7 @@ var html     = template(data);
 $('container').empty().append(html);
 ```
 
-Frustrated with the amount of labor, I decided to roll out my own and focus on simplicity. It's called [Transparency][4].
-
-In this blog post, I walk through some of the main design decisions and corresponding implementations.
+Frustrated with the amount of labor, I decided to roll out my own and focus on simplicity. In this article, I walk through some of the main design decisions and corresponding implementation.
 
 ## No syntax, please!
 
@@ -47,13 +45,7 @@ data = {
 
 I want to render that on object on the page with a single function call. No template definition in script tags, no extra markup, no manual DOM manipulation.
 
-So when I call
-
-```javascript
-$('.container').render(data);
-```
-
-I should see the following in the browser
+So when I call `$('.container').render(data);`, I should see the following in the browser
 
 ```html
 <div class="container">
@@ -62,6 +54,7 @@ I should see the following in the browser
 ```
 
 We'll, it turned out, that wasn't too hard to implement. DOM manipulation is the bread and butter of jQuery, so all we need to do is
+
 1. Iterate over the key-value pairs of the javascript objects
 2. Render the value on as text on the matching DOM element.
 
@@ -101,12 +94,15 @@ And a web page like
 
 When I call `$('.container').render(friends)`, I should see
 
+```html
 <ul class="container">
   <li class="name">Al Pacino</li>
   <li class="name">The Joker</li>
 </ul>
+```
 
 Obviously, we need to extend the existing implementation with following steps
+
 1. Iterate through the list of data objects
 2. Take a new copy of the template for each object
 3. Append  the result to the DOM
@@ -158,6 +154,7 @@ Result after the second call
 The reason is obvious. The current implementation finds class name twice in on the second call and renders the the name on the both elements. That sucks, because it means you'd have to manually keep the original templates in safe.
 
 To avoid the problem, we need to
+
 1. Cache the original template on the first .render()
 2. Use the cached template on the successive calls
 
@@ -299,8 +296,10 @@ The actual implementation is 66 lines of CoffeeScript and the sources are availa
 
 Cheers,
 
-Jarno Keskikangas <jarno.keskikangas@leonidasoy.fi>
-Leonidas Oy <http://leonidasoy.fi>
+Jarno Keskikangas <[jarno.keskikangas@leonidasoy.fi](mailto://jarno.keskikangas@leonidasoy.fi)>
+
+Leonidas Oy <[http://leonidasoy.fi](http://leonidasoy.fi)>
+
 
 [1]: http://en.wikipedia.org/wiki/Single-page_application
 [2]: http://handlebarsjs.com/
