@@ -218,7 +218,9 @@ And the result should be
 </div>
 ```
 
-At first, implementing directives might seem like a daunting task, but given the flexibility and and power of javascript functions and object literals, it isn't that bad. We only need to
+At first, implementing directives might seem like a daunting task, but given the flexibility and and power of 
+javascript functions and object literals, it isn't that bad. We only need to
+
 1. Iterate over the key-function pairs of the directive object
 2. Bind the function to the data object and execute it
 3. Assign the return value to the matching DOM element
