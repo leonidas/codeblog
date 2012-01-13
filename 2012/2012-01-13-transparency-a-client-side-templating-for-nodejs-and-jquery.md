@@ -132,6 +132,7 @@ It's worth noticing, that the rendering a single object is actually just an edge
 The previous implementation works, kind of. However, if you call `$('container').render(friends)` twice, it fails, as shown below.
 
 Result after the first call
+
 ```html
 <ul class="container">
   <li class="name">Al Pacino</li>
@@ -140,6 +141,7 @@ Result after the first call
 ```
 
 Result after the second call
+
 ```html
 <ul class="container">
   <li class="name">Al Pacino</li>
