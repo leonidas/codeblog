@@ -1,4 +1,4 @@
-# Transparency - A client-side templating for Node.js and jQuery
+# Transparency - Client-side templating for Node.js and jQuery
 
 [Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for numerous reasons (latencies, separation of concerns and ease of testing to name a few).
 
