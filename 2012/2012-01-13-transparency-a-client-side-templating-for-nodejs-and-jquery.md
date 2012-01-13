@@ -310,7 +310,7 @@ Writing Transparency has been a delightful experience. It gave me a chance to ge
 CoffeeScript, Jasmine and jQuery plugin development. At Leonidas, we've used it in a numerous projects in the past 
 couple of months, and so far, we've been happy with it.
 
-The actual implementation is 66 lines of CoffeeScript and the sources are available at [GitHub][5]. To make it easy to 
+The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. To make it easy to 
 try, we've set up [Transparency demo site][4]. Enjoy!
 
 Cheers,
