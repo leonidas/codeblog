@@ -2,7 +2,9 @@
 
 [Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for numerous reasons (latencies, separation of concerns and ease of testing to name a few).
 
-However, one point I haven't felt too good about is client side rendering. It's just silly how cumbersome it is to compile the template, render the data and finally manipulate the DOM. For example, with popular template engines like [Handlebars][2] or [Mustache][3], you typically need do something like
+However, one point I haven't felt too good about is client side rendering. It's just silly how cumbersome it is to 
+compile the template, render the data and finally manipulate the DOM. For example, with popular template engines like 
+[Handlebars][2] or [Mustache][3], you typically need do something like
 
 ```
 <script id="entry-template" type="text/x-handlebars-template">
@@ -23,7 +25,8 @@ var html     = template(data);
 $('container').empty().append(html);
 ```
 
-Frustrated with the amount of labor, I decided to roll out my own and focus on simplicity. In this article, I walk through some of the main design decisions and corresponding implementation.
+Frustrated with the amount of labor, I decided to roll out my own and focus on simplicity. In this article, 
+I walk through some of the main design decisions and corresponding implementation.
 
 ## No syntax, please!
 
@@ -43,8 +46,9 @@ data = {
 };
 ```
 
-I want to render that on object on the page with a single function call. No template definition in script tags, no extra markup, no manual DOM manipulation.
-So, when I call `$('.container').render(data);`, I should see the following in the browser
+I want to render that on object on the page with a single function call. No template definition in script tags, 
+no extra markup, no manual DOM manipulation. So, when I call `$('.container').render(data);`, I should see the 
+following in the browser
 
 ```html
 <div class="container">
@@ -52,7 +56,8 @@ So, when I call `$('.container').render(data);`, I should see the following in t
 </div>
 ```
 
-We'll, it turned out, that wasn't too hard to implement. DOM manipulation is the bread and butter of jQuery, so all we need to do is
+We'll, it turned out, that wasn't too hard to implement. DOM manipulation is the bread and butter of jQuery, 
+so all we need to do is
 
 1. Iterate over the key-value pairs of the javascript objects
 2. Render the value on the matching DOM element.
@@ -73,7 +78,8 @@ jQuery.fn.render = (data) ->
 
 ## There are too many loops out there
 
-The next logical step was support for collections. I wanted to keep the interface exactly the same, without explicit loops or partials. Given an object like
+The next logical step was support for collections. I wanted to keep the interface exactly the same, without explicit 
+loops or partials. Given an object like
 
 ```javascript
 friends = [
@@ -125,11 +131,13 @@ jQuery.fn.render = (data) ->
     context.append tmp.children()
 ```
 
-It's worth noticing, that the rendering a single object is actually just an edge case of rendering a list of data objects. That gives us an opportunity to generalize the edge case by encapsulating the single object into a list as shown above.
+It's worth noticing, that the rendering a single object is actually just an edge case of rendering a list of data 
+objects. That gives us an opportunity to generalize the edge case by encapsulating the single object into a list as 
+shown above.
 
 ## Do it again!
 
-The previous implementation works, kind of. However, if you call `$('container').render(friends)` twice, it fails, as shown below.
+The previous implementation works, kind of. However, if you call `$('container').render(friends)` twice, it fails.
 
 Result after the first call
 
@@ -184,9 +192,11 @@ jQuery.fn.render = (data) ->
 
 ## My way or the highway
 
-Rails has shown us how powerful it is to have strong conventions over configurations. Sometimes, however, you need to do the things differently and then it helps to have all the means available. In JavaScript, that means functions.
+Rails has shown us how powerful it is to have strong conventions over configurations. Sometimes, however, you need to 
+do the things differently and then it helps to have all the power. In JavaScript, that means functions.
 
-I wanted to be able to hook into rendering and define by functions how the rendering should happen. Common scenarios would include, e.g., decorators and attribute assignment.
+I wanted to be able to hook into rendering and define by functions how the rendering should happen. Common scenarios 
+would include, e.g., decorators and attribute assignment.
 
 For example, given a template
 
@@ -196,7 +206,7 @@ For example, given a template
 </div>
 ```
 
-I want be able render following data object with the directive, as shown below
+I want be able render the following data object with the directive
 
 ```coffeescript
 person = {
@@ -256,7 +266,9 @@ renderNode = (node, value) ->
 
 ## Generalizing to nested data
 
-We'll, I bet you saw this coming. Why stop here, if we could easily support nested objects, lists and directives. For each child object, we should do exactly same operations that we did for the parent object. Sounds like recursion and, indeed, with recursion, we need to add only couple of lines, as shown below:
+We'll, I bet you saw this coming. Why stop here, if we could easily support nested objects, lists and directives. 
+For each child object, we should do exactly same operations that we did for the parent object. Sounds like recursion 
+and, indeed, we need to add only couple of lines:
 
 ```coffeescript
 jQuery.fn.render = (data, directives) ->
@@ -293,9 +305,12 @@ renderNode = (node, value) ->
 
 ## Using Transparency in the real world applications
 
-Writing Transparency has been a delightful experience. It gave me a chance to get my feet wet with node.js, CoffeeScript, Jasmine and jQuery plugin development. At Leonidas, we've used it in a numerous projects in the past couple of months, and so far, we've been happy with it.
+Writing Transparency has been a delightful experience. It gave me a chance to get my feet wet with node.js, 
+CoffeeScript, Jasmine and jQuery plugin development. At Leonidas, we've used it in a numerous projects in the past 
+couple of months, and so far, we've been happy with it.
 
-The actual implementation is 66 lines of CoffeeScript and the sources are available at [GitHub][5]. To make it easy to try, we've set up [Transparency demo site][4]. Enjoy!
+The actual implementation is 66 lines of CoffeeScript and the sources are available at [GitHub][5]. To make it easy to 
+try, we've set up [Transparency demo site][4]. Enjoy!
 
 Cheers,
 
