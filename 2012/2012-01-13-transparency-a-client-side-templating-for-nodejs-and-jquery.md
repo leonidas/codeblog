@@ -265,7 +265,7 @@ renderNode = (node, value) ->
   node.append children
 ```
 
-## Generalizing to nested data
+## Generalizing to nested data objects, lists and directives
 
 We'll, I bet you saw this coming. Why stop here, if we could easily support nested objects, lists and directives. 
 For each child object, we should do exactly same operations that we did for the parent object. Sounds like recursion 
