@@ -55,8 +55,7 @@ So, when I call `$('.container').render(data);`, I should see the following in t
 We'll, it turned out, that wasn't too hard to implement. DOM manipulation is the bread and butter of jQuery, so all we need to do is
 
 1. Iterate over the key-value pairs of the javascript objects
-2. Render the value on as text on the matching DOM element.
-
+2. Render the value on the matching DOM element.
 
 The initial implementation looked like something like this:
 
