@@ -44,8 +44,7 @@ data = {
 ```
 
 I want to render that on object on the page with a single function call. No template definition in script tags, no extra markup, no manual DOM manipulation.
-
-So when I call `$('.container').render(data);`, I should see the following in the browser
+So, when I call `$('.container').render(data);`, I should see the following in the browser
 
 ```html
 <div class="container">
