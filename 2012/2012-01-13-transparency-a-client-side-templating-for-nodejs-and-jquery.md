@@ -151,7 +151,8 @@ Result after the second call
 </ul>
 ```
 
-The reason is obvious. The current implementation finds class name twice in on the second call and renders the the name on the both elements. That sucks, because it means you'd have to manually keep the original templates in safe.
+The reason is obvious. The current implementation finds two matching elements on the second call and renders 
+the name on the both elements. That sucks, because it means you'd have to manually keep the original templates in safe.
 
 To avoid the problem, we need to
 
