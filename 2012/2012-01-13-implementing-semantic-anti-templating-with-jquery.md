@@ -37,6 +37,7 @@ I started with a modest goal: Given I have a static web page
 ```html
 <div class="container">
   <div class="hello"></div>
+  <div class="goodbye"></div>
 </div>
 ```
 
@@ -45,6 +46,7 @@ and a simple JavaScript object
 ```javascript
 data = {
   hello: "Hi There!"
+  goodbye: "See ya!"
 };
 ```
 
@@ -55,6 +57,7 @@ following in the browser
 ```html
 <div class="container">
   <div class="hello">Hi There!</div>
+  <div class="goodbye">See ya!</div>
 </div>
 ```
 
@@ -78,7 +81,7 @@ jQuery.fn.render = (data) ->
       node.append children
 ```
 
-## There are too many loops out there
+## Getting rid of loops
 
 The next logical step was support for collections. I wanted to keep the interface exactly the same, without explicit 
 loops or partials. Given an object like
