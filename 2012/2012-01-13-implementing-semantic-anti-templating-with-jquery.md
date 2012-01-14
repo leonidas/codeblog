@@ -64,7 +64,7 @@ so all we need to do is
 1. Iterate over the key-value pairs of the javascript objects
 2. Render the value on the matching DOM element.
 
-The initial implementation looked like something like this:
+The initial implementation looked like something like this (in CoffeeScript):
 
 ```coffeescript
 jQuery.fn.render = (data) ->
