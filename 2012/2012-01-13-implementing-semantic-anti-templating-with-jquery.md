@@ -1,4 +1,4 @@
-# Transparency - Client-side templating for Node.js and jQuery
+# Implementing Semantic Anti-Templating With jQuery
 
 [Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for 
 numerous reasons (reduced latency, separation of concerns and ease of testing to name a few).
@@ -311,8 +311,8 @@ Writing Transparency has been a delightful experience. It gave me a chance to ge
 CoffeeScript, Jasmine and jQuery plugin development. At Leonidas, we've used it in a numerous projects in the past 
 couple of months, and so far, we've been happy with it.
 
-The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. To make it easy to 
-try, we've set up [Transparency demo site][4]. Enjoy!
+The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. If you want to give it a try,
+check [the demo site][4].
 
 Cheers,
 
