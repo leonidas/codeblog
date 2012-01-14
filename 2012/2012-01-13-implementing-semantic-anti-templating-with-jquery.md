@@ -317,7 +317,7 @@ couple of months, and so far, we've been happy with it.
 The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. If you want to give it a try,
 check [the demo site][4].
 
-Discussions: [Reddit](http://www.reddit.com/search?q=Implementing+Semantic+Anti-Templating+With+jQuery).
+Discussions are at [Reddit](http://www.reddit.com/search?q=Implementing+Semantic+Anti-Templating+With+jQuery).
 
 Cheers,
 
