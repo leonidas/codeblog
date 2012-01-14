@@ -315,7 +315,14 @@ CoffeeScript, Jasmine and jQuery plugin development. At Leonidas, we've used it 
 couple of months, and so far, we've been happy with it.
 
 The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. If you want to give it a try,
-check [the demo site][4].
+check [the demo site][4]. To use it in your own application, grab the 
+[compiled and minified version](https://raw.github.com/leonidas/transparency/master/lib/jquery.transparency.min.js)
+and include it to your application with jQuery
+
+```html
+<script src="js/jquery-1.7.1.min.js"></script>
+<script src="js/jquery.transparency.min.js"></script>
+```
 
 Discussions regarding the article are at [Reddit](http://www.reddit.com/search?q=Implementing+Semantic+Anti-Templating+With+jQuery).
 
