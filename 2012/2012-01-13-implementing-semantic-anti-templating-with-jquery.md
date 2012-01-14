@@ -3,7 +3,7 @@
 [Single-page web applications][1] have been pretty much standard for quite a while, and I'm a strong advocate for 
 numerous reasons (reduced latency, separation of concerns and ease of testing to name a few).
 
-However, one point I haven't felt too good about is client side rendering. It's just silly how cumbersome it is to 
+However, one point I haven't felt too good about is client side rendering. It's ridiculous how cumbersome it is to 
 compile the template, render the data and finally manipulate the DOM. For example, with popular template engines like 
 [Handlebars][2] or [Mustache][3], you typically need do something like
 
@@ -316,6 +316,8 @@ couple of months, and so far, we've been happy with it.
 
 The actual implementation is 66 lines of CoffeeScript, available at [GitHub][5]. If you want to give it a try,
 check [the demo site][4].
+
+Discussions: [Reddit](http://www.reddit.com/search?q=Implementing+Semantic+Anti-Templating+With+jQuery).
 
 Cheers,
 
