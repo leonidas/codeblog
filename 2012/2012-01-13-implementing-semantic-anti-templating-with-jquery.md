@@ -45,7 +45,7 @@ and a simple JavaScript object
 
 ```javascript
 data = {
-  hello: "Hi There!"
+  hello: "Hi there!"
   goodbye: "See ya!"
 };
 ```
@@ -56,7 +56,7 @@ following in the browser
 
 ```html
 <div class="container">
-  <div class="hello">Hi There!</div>
+  <div class="hello">Hi there!</div>
   <div class="goodbye">See ya!</div>
 </div>
 ```
