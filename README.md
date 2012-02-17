@@ -4,6 +4,7 @@ This is the technical side blog of [Leonidas](http://leonidasoy.fi/).
 
 ## Latest Articles
 
+* 2012-02-17: [Concatenative, Row-Polymorphic Programming in Haskell](https://github.com/leonidas/codeblog/blob/master/2012/2012-02-17-concatenative-haskell.md)
 * 2012-01-17: [Purely Functional, Declarative Game Logic Using Reactive Programming](https://github.com/leonidas/codeblog/blob/master/2012/2012-01-17-declarative-game-logic-afrp.md)
 * 2012-01-13: [Implementing Semantic Anti-Templating With jQuery](https://github.com/leonidas/codeblog/blob/master/2012/2012-01-13-implementing-semantic-anti-templating-with-jquery.md)
 * 2012-01-08: [Generalizing Streams into Coroutines](https://github.com/leonidas/codeblog/blob/master/2012/2012-01-08-streams-coroutines.md)
