@@ -362,7 +362,7 @@ hello = push "What's your name? " >>> return
 
 ## Conclusion
 
-While there aren't many practical uses for this kind of programming in Haskell, I still found it interesting how the concepts mapped onto the Haskell type system. But is this "real" row polymorphism or are there cases where this model is less generic than the one described in "Why Concatenative Programming Matters"? Let me know if I've missed something!
+While there aren't many practical uses for this kind of programming in Haskell, I still found it interesting how the concepts mapped onto the Haskell type system. But is this "real" row polymorphism or are there cases where this model is less generic than the one described in "Why Concatenative Programming Matters"? Let me know if I've missed something (via email or in [this Reddit thread](http://www.reddit.com/r/haskell/comments/ptji8/concatenative_rowpolymorphic_programming_in/)!
 
 
 All the code in this post can be found in [this gist](https://gist.github.com/1851086).
