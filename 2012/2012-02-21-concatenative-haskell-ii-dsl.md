@@ -361,7 +361,7 @@ Hopefully this post has given you some ideas on how to utilize `haskell-src-exts
 You can browse the code in [this github repo](https://github.com/shangaslammi/concat-dsl-qq).
 
 
-You can also discuss this article on [Reddit]().
+You can also discuss this article on [Reddit](http://www.reddit.com/r/haskell/comments/pzh53/concatenative_haskell_part_ii_custom_dsl_syntax/).
 
 
 <hr/>
