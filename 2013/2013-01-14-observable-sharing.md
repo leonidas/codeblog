@@ -175,7 +175,7 @@ makeUnique p = do
     return $ deref rootId
 ```
 
-Note that this uses the [`Unique`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify-Graph.html#t:Unique) type from [`Data.Reify.Graph`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify-Graph.html) which is different from [`Data.Unique`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-Unique.html), but with small changes to `makeUnique` we can, again, use [`Data.Unique.Unique`] to ensure the uniqueness of the identities throughout our program.
+Note that this uses the [`Unique`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify-Graph.html#t:Unique) type from [`Data.Reify.Graph`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify-Graph.html) which is different from [`Data.Unique`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-Unique.html), but with small changes to `makeUnique` we can, again, use `Data.Unique.Unique` to ensure the uniqueness of the identities throughout our program.
 
 ```haskell
 makeUnique :: Person -> IO UniquePerson
