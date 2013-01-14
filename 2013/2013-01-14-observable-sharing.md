@@ -76,7 +76,7 @@ However, this comes with the limitation that we can only "instantiate" new perso
 import Control.Applicative ((<$>))
 
 main = do
-    mary  <- UniquePerson "Mary"  []     <$> newUnique
+    mary  <- UniquePerson "Mary"  []     <$> newUnique
     bob   <- UniquePerson "Bob"   [mary] <$> newUnique
     alice <- UniquePerson "Alice" [mary] <$> newUnique
 
@@ -170,7 +170,7 @@ makeUnique p = do
 
     let deref identity = UniquePerson name uniqueFriends identity where
             uniqueFriends = map deref friends
-            Person' name friends = fromJust $ lookup identity nodes
+            Person' name friends = fromJust $ lookup identity nodes
 
     return $ deref rootId
 ```
@@ -190,8 +190,8 @@ makeUnique p = do
 
     let deref uid = UniquePerson name uniqueFriends identity where
             uniqueFriends = map deref friends
-            identity      = fromJust $ lookup uid identities
-            Person' name friends = fromJust $ lookup uid nodes
+            identity      = fromJust $ lookup uid identities
+            Person' name friends = fromJust $ lookup uid nodes
 
     return $ deref rootId
 ```
