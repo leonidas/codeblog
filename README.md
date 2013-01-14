@@ -4,7 +4,7 @@ This is the technical side blog of [Leonidas](http://leonidasoy.fi/).
 
 ## Latest Articles
 
-* 2013-01-14: [Observable Sharing Using Data.Reify](https://github.com/leonidas/codeblog/blob/master/2013/2013-01-04-observable-sharing.md)
+* 2013-01-14: [Observable Sharing Using Data.Reify](https://github.com/leonidas/codeblog/blob/master/2013/2013-01-14-observable-sharing.md)
 
 ## Older Articles
 
