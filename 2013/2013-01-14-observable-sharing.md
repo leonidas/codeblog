@@ -161,7 +161,7 @@ instance MuRef Person where
 
 The type of [`mapDeRef`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify.html#v:mapDeRef) is a bit cryptic, but the gist of it is that it gets as a parameter a function `f` and a value of the original data type (`Person`) and the implementation has to return a value of the mirror type (`Person'`) where each recursive field is mapped through `f`.
 
-Now that we have a `MuRef` instance, we can use the [`reifyGraph`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify.html#v:reifyGraph) function to build a list of `[(ID, Person')]` pairs and then initialize a `UniquePerson` based on that.
+Now that we have a `MuRef` instance, we can use the [`reifyGraph`](http://hackage.haskell.org/packages/archive/data-reify/latest/doc/html/Data-Reify.html#v:reifyGraph) function to build a list of `(ID, Person')` pairs and then initialize a `UniquePerson` based on that.
 
 ```haskell
 makeUnique :: Person -> IO UniquePerson
