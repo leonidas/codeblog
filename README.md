@@ -4,6 +4,7 @@ This is the technical side blog of [Leonidas](http://leonidasoy.fi/).
 
 ## Latest Articles
 
+* 2013-01-14: [A Game of Type-Safe Tic-Tac-Toe](https://github.com/leonidas/codeblog/blob/master/2013/2013-02-19-typesafe-tictactoe.md)
 * 2013-01-14: [Observable Sharing Using Data.Reify](https://github.com/leonidas/codeblog/blob/master/2013/2013-01-14-observable-sharing.md)
 
 ## Older Articles
