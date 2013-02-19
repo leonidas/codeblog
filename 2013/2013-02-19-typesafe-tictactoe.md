@@ -16,7 +16,7 @@ The fundamental elements of Tic-Tac-Toe are the game pieces, which can be either
 Xs or Os. This maps naturally to the simple, algebraic data-type
 
 ```haskell
-data Piece = X | O deriving Eq
+data Piece = X | O deriving Eq
 ```
 
 
@@ -156,7 +156,7 @@ makeMove board move
         draw     = maybeIf (isFull board') Draw
         victory  = msum $ map check lanes
 
-        check lane = maybeIf allMatch $ Win piece where
+        check lane = maybeIf allMatch $ Win piece where
             allMatch = all (\p -> board' ! p == Just piece) lane
 ```
 
@@ -206,7 +206,7 @@ recursive call.
         draw     = maybeIf (isFull board') Draw
         victory  = msum $ map check lanes
 
-        check lane = maybeIf allMatch $ Win piece where
+        check lane = maybeIf allMatch $ Win piece where
             allMatch = all (\p -> board' ! p == Just piece) lane
 ```
 
@@ -388,7 +388,7 @@ playGame queue (px, po) = start >> play >> both requeue where
 
         sendBoard = atomically $ both $ \u -> notify (userConn u) (GameBoard b)
 
-    notifyResult u = notify (userConn u) . GameOver
+    notifyResult u = notify (userConn u) . GameOver
 
     both :: Monad m => (forall t. Player t -> m ()) -> m ()
     both op = op px >> op po
