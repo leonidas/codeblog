@@ -293,9 +293,9 @@ onRequest
     -> STM ()
 ```
 
-Since the constructor `Some` loses all information about the type parameter,
-our function that handles a deserialized request must be able to handle any type.
-We indicate this with a [rank-2 type](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/other-type-extensions.html#universal-quantification).
+Since the constructor `Some` loses all information about the type parameter of
+the request, our function that handles a deserialized request must be able to
+handle any type. We indicate this with a [rank-2 type](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/other-type-extensions.html#universal-quantification).
 
 This is different from the signature
 
