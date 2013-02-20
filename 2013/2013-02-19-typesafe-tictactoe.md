@@ -293,9 +293,28 @@ onRequest
     -> STM ()
 ```
 
-By using a [rank-2 type](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/other-type-extensions.html#universal-quantification), we can provide a request handler function that
-can return various response types based on the GADT constructor. For example,
-handling the `ServerRequest` defined above might look something like
+Since the constructor `Some` loses all information about the type parameter,
+our function that handles a deserialized request must be able to handle any type.
+We indicate this with a [rank-2 type](http://www.haskell.org/ghc/docs/7.4.1/html/users_guide/other-type-extensions.html#universal-quantification).
+
+This is different from the signature
+
+```haskell
+onRequest
+    :: Request req
+    => Connection
+    -> (req resp -> IO resp)
+    -> STM ()
+```
+
+in that for the rank-1 version, the concrete types of `req` and `resp` are fixed
+when the function is called, whereas for the rank-2 version the function given
+as a parameter stays polymorphic.
+
+The erased phantom type can be recovered by matching to the constructors of
+the request GADT, because each constructor is associated with a specific
+phantom type. For example, handling the `ServerRequest` defined above might
+look something like
 
 ```haskell
 onRequest conn $ \req -> case req of
