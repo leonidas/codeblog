@@ -22,3 +22,8 @@ This is the technical side blog of [Leonidas](http://leonidasoy.fi/).
 * 2011-12-27: [Basic Tutorial of Template Haskell](https://github.com/leonidas/codeblog/blob/master/2011/2011-12-27-template-haskell.md)
 * 2011-12-21: [Statically Typed Vector Algebra Using Type Families](https://github.com/leonidas/codeblog/blob/master/2011/2011-12-21-static-vector-algebra.md)
 * 2011-12-18: [NFA in a Single Line of Haskell](https://github.com/leonidas/codeblog/blob/master/2011/2011-12-18-haskell-nfa.md)
+
+## License
+
+All source code contained in the blog articles is placed under the MIT license
+unless mentioned otherwise.
