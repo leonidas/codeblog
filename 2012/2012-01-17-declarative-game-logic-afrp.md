@@ -169,7 +169,7 @@ bottomWall = 590
 -- Ball bounce events for horizontal and vertical bounce
 data BallBounce = HBounce | VBounce
 
--- Multiple a vector by a scalar
+-- Multiply a vector by a scalar
 vecMul :: Int -> (Int, Int) -> (Int, Int)
 vecMul c (x,y) = (x*c,y*c)
 
@@ -184,7 +184,7 @@ bounce (dx,dy) b = case b of
     VBounce -> (dx,-dy)
 ```
 
-Now we can define the ball position in terms on bounce events:
+Now we can define the ball position in terms of bounce events:
 
 ```haskell
 ballPos :: Coroutine (Event BallBounce) BallPos
