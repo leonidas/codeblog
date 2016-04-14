@@ -10,7 +10,7 @@ The essence of Template Haskell is to write Haskell code that generates new Hask
 
 Quotations can be thought of as syntactic sugar for generating ASTs. There are several different kinds of quotations, depending on the context we are working in.
 
-* Expression quotations are used for generating regular Haskell expressions, and the have the syntax `[|expression|]`. So for example `[|1+2|]` is syntactic sugar for the infix expression `InfixE (Just (LitE (IntegerL 1))) (VarE GHC.Num.+) (Just (LitE (IntegerL 2)))`.
+* Expression quotations are used for generating regular Haskell expressions, and they have the syntax `[|expression|]`. For example, `[|1+2|]` is syntactic sugar for the infix expression `InfixE (Just (LitE (IntegerL 1))) (VarE GHC.Num.+) (Just (LitE (IntegerL 2)))`.
 
 * Declaration quotations are used for generating top-level declarations for constants, types, functions, instances etc. and use the syntax `[d|declaration|]`. Example: `[d|x = 5|]` results in `[ValD (VarP f) (NormalB (LitE (IntegerL 5))) []]`. Note that the quotation can contain multiple declarations, so it evaluates to a list of declaration values.
 
