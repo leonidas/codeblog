@@ -6,14 +6,14 @@ In the [previous article](https://github.com/leonidas/codeblog/blob/master/2012/
 
 The classic model of functional reactive programming has two main concepts:
 
-* time varying values, which can be though of as functions `Time -> a`
-* events, which can be thought of as time-ordered (possible infinite) streams of `(Time, e)` pairs
+* time-varying values, which can be thought of as functions `Time -> a`
+* events, which can be thought of as time-ordered (possibly infinite) streams of `(Time, e)` pairs
 
 These can be used to model dynamic systems with continous time, but there are also many domains such as games and physics simulations which tend to use fixed time-steps instead, and these kind of systems can be modeled very conveniently using coroutines so that each call to the coroutine represents a single time-step.
 
 ## Fixed Time-Step FRP
 
-In fixed time-step FRP, coroutines are analogous to time varying values (or behaviors, as they are sometimes called). A coroutine of type `Coroutine a b` can be thought of as a time varying value of type `b` that is dependent on another time varying value of type `a`.
+In fixed time-step FRP, coroutines are analogous to time-varying values (or behaviors, as they are sometimes called). A coroutine of type `Coroutine a b` can be thought of as a time-varying value of type `b` that is dependent on another time-varying value of type `a`.
 
 So, for example, the position of a player character in a game can be thought of as `Position` that is dependent on `KeyboardInput`, so it would have the type
 
@@ -21,13 +21,13 @@ So, for example, the position of a player character in a game can be thought of 
 playerPosition :: Coroutine KeyboardInput Position
 ```
 
-Events are simply time varying lists, where the list contains the events that occur during the current time-step.
+Events are simply time-varying lists, where the list contains the events that occur during the current time-step.
 
 ```haskell
 type Event a = [a]
 ```
 
-Since they are time varying values, events too depend on other time varying values. So for example
+Since they are time-varying values, events too depend on other time-varying values. So for example
 
 ```haskell
 playerCollisions :: Coroutine Position (Event Collision)
@@ -45,7 +45,7 @@ I.e. the collision events for [pac-man](http://en.wikipedia.org/wiki/Pac-Man) wo
 
 ## Connecting Dependent Values
 
-The `Arrow` instance we defined for coroutines in the previous article comes in handy for connecting time varying values with their dependencies. Instead of being functions of `Time -> a`, the time varying values in our fixed time-step system are analoguous to value streams, with one concrete value for every time step. Coroutines can then be seen as stream processors that take in a stream of dependencies and produce a stream of derived values.
+The `Arrow` instance we defined for coroutines in the previous article comes in handy for connecting time-varying values with their dependencies. Instead of being functions of `Time -> a`, the time-varying values in our fixed time-step system are analoguous to value streams, with one concrete value for every time step. Coroutines can then be seen as stream processors that take in a stream of dependencies and produce a stream of derived values.
 
 Using the above examples, you could for example pipe `playerPosition` and `playerCollision` together (since the collisions were dependent on the position) like this
 
@@ -55,7 +55,7 @@ playerPosition >>> playerCollisions
 
 The above expression forms a new coroutine with the type `Coroutine KeyboardInput (Event Collision)`, where the keyboard state is first used to calculate the current player position, which is then used to generate collision events.
 
-I mentioned in the previous blog post that tuples in arrow operations can be thought as separate lines of computation. Thus, if we have a time varying tuple `(a, b)` and we want to pipe `a` and `b` into two different coroutines, we can do that using the operator [`***`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Arrow.html#v:-42--42--42-). If we want to pipe a single value `a` into two different coroutines, we can split it using the operator [`&&&`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Arrow.html#v:-38--38--38-). [This wiki page](http://en.wikibooks.org/wiki/Haskell/Understanding_arrows) is an excellent resource if you want a more detailed explanation (with illustrations) on how the different arrow operators work conceptually.
+I mentioned in the previous blog post that tuples in arrow operations can be thought as separate lines of computation. Thus, if we have a time-varying tuple `(a, b)` and we want to pipe `a` and `b` into two different coroutines, we can do that using the operator [`***`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Arrow.html#v:-42--42--42-). If we want to pipe a single value `a` into two different coroutines, we can split it using the operator [`&&&`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Control-Arrow.html#v:-38--38--38-). [This wiki page](http://en.wikibooks.org/wiki/Haskell/Understanding_arrows) is an excellent resource if you want a more detailed explanation (with illustrations) on how the different arrow operators work conceptually.
 
 ## Basic Combinators
 
@@ -74,7 +74,7 @@ filterE = arr . filter
 constE :: e -> Coroutine (Event e') (Event e)
 constE = mapE . const
 
--- | Merge two time varying values using a combining function
+-- | Merge two time-varying values using a combining function
 zipWithC :: (a -> b -> c) -> Coroutine (a, b) c
 zipWithC = arr . uncurry
 
@@ -93,7 +93,7 @@ scanE f i = Coroutine $ step i where
 
 `scanE` takes an initial value and a function that is used to combine incoming events with the value. The result is a value which can be changed by events, but otherwise stays constant.
 
-Other useful utilities for manipulating and combining time varying values are:
+Other useful utilities for manipulating and combining time-varying values are:
 
 ```haskell
 -- | Split a value into (current value, previous value) using the given
@@ -212,7 +212,7 @@ collision ((px,py),(bx,by)) = abs (px-bx) < w' && abs (py-by) < h' where
 
 ```
 
-Here we are starting to see a problem. The ball position depends on bounce events which are generated from collisions with the top and bottom walls as wells as the player bat. However, in order to generate those collisions we need to know the ball position. Chicken and egg.
+Here we are starting to see a problem. The ball position depends on bounce events which are generated from collisions with the top and bottom walls as well as the player's bat. However, in order to generate those collisions we need to know the ball position. Chicken and egg.
 
 So, what do we do? Let's assume for a moment, that we could somehow know the ball position before we generate it and write ballPos like this:
 
